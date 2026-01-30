@@ -1,13 +1,19 @@
 import Link from "next/link";
 import { fetchMovieDetail } from "@/lib/tmdb";
 
+/**
+ * @param {{ params: Promise<{ id: string }> }} props
+ */
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const movie = await fetchMovieDetail(id);
   return { title: movie.title };
 }
 
-/** 映画詳細ページ（Server Component） */
+/**
+ * 映画詳細ページ（Server Component）
+ * @param {{ params: Promise<{ id: string }> }} props
+ */
 export default async function MovieDetailPage({ params }) {
   const { id } = await params;
   const movie = await fetchMovieDetail(id);
