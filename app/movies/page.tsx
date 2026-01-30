@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { fetchPopularMovies, getImageUrl, convertRating } from "@/lib/tmdb";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
@@ -11,7 +12,7 @@ interface Movie {
   vote_average?: number;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "人気映画一覧",
   description: "TMDBから取得した人気映画の一覧",
 };
