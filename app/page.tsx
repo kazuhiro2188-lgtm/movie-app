@@ -37,25 +37,31 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       <main className="py-3 sm:py-4 md:py-6 lg:py-8 xl:py-12">
-        <h1 className="relative text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
-          {/* メインテキスト */}
-          <span className="relative inline-block z-10 break-words">
-            <span className="bg-gradient-to-r from-yellow-300 via-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_10px_rgba(251,191,36,0.8)] sm:drop-shadow-[0_0_12px_rgba(251,191,36,0.9)] hover:drop-shadow-[0_0_20px_rgba(251,191,36,1)] transition-all duration-500 break-words">
-              Popular movie
+        <h1 className="relative text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 px-3 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
+          {/* メインテキスト - オシャレなデザイン */}
+          <span className="relative inline-block z-10">
+            <span className="font-serif italic tracking-wider bg-gradient-to-r from-amber-200 via-yellow-300 via-amber-300 to-yellow-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(251,191,36,0.6)] sm:drop-shadow-[0_0_10px_rgba(251,191,36,0.7)] hover:drop-shadow-[0_0_15px_rgba(251,191,36,0.9)] transition-all duration-500 letter-spacing-[0.1em] sm:letter-spacing-[0.15em]">
+              Popular
+            </span>
+            <span className="font-sans font-extralight tracking-[0.2em] text-amber-300/80 mx-2 sm:mx-3">•</span>
+            <span className="font-serif italic tracking-wider bg-gradient-to-r from-yellow-300 via-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(251,191,36,0.6)] sm:drop-shadow-[0_0_10px_rgba(251,191,36,0.7)] hover:drop-shadow-[0_0_15px_rgba(251,191,36,0.9)] transition-all duration-500 letter-spacing-[0.1em] sm:letter-spacing-[0.15em]">
+              movie
             </span>
           </span>
           {/* 強いグロー効果 */}
-          <span className="absolute inset-0 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-amber-400/50 blur-xl animate-pulse pointer-events-none break-words px-3 sm:px-4 md:px-6 lg:px-8">
-            Popular movie
+          <span className="absolute inset-0 flex items-center justify-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light text-amber-400/40 blur-lg pointer-events-none px-3 sm:px-4 md:px-6 lg:px-8">
+            <span className="font-serif italic tracking-wider">Popular</span>
+            <span className="font-sans font-extralight tracking-[0.2em] text-amber-300/60 mx-2 sm:mx-3">•</span>
+            <span className="font-serif italic tracking-wider">movie</span>
           </span>
           {/* アウトライン効果 */}
-          <span className="absolute inset-0 flex items-center justify-center text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-transparent [-webkit-text-stroke:2px_rgba(251,191,36,0.3)] sm:[-webkit-text-stroke:2.5px_rgba(251,191,36,0.4)] lg:[-webkit-text-stroke:3px_rgba(251,191,36,0.4)] pointer-events-none break-words px-3 sm:px-4 md:px-6 lg:px-8">
-            Popular movie
+          <span className="absolute inset-0 flex items-center justify-center text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-light text-transparent [-webkit-text-stroke:1px_rgba(251,191,36,0.2)] sm:[-webkit-text-stroke:1.5px_rgba(251,191,36,0.3)] pointer-events-none px-3 sm:px-4 md:px-6 lg:px-8">
+            <span className="font-serif italic tracking-wider">Popular</span>
+            <span className="font-sans font-extralight tracking-[0.2em] mx-2 sm:mx-3">•</span>
+            <span className="font-serif italic tracking-wider">movie</span>
           </span>
-          {/* パルスリング */}
-          <span className="absolute inset-0 flex items-center justify-center">
-            <span className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-0.5 sm:h-1 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent rounded-full blur-sm animate-pulse"></span>
-          </span>
+          {/* エレガントな下線 */}
+          <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 sm:w-32 md:w-40 lg:w-48 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></span>
         </h1>
         {error ? (
           <ErrorDisplay message={error} />
