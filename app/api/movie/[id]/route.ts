@@ -3,10 +3,10 @@ import { getMovieDetails } from "@/lib/tmdb";
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
-) {
-  const params = await context.params;
-  const movieId = parseInt(params.id);
+  { params }: { params: Promise<{ id: string }> }
+): Promise<NextResponse> {
+  const { id } = await params;
+  const movieId = parseInt(id);
 
   if (isNaN(movieId)) {
     return NextResponse.json({ error: "Invalid movie ID" }, { status: 400 });
