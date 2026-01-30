@@ -21,16 +21,16 @@ export default function Header() {
 
   return (
     <header className="bg-gray-900/80 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
+      <nav className="max-w-7xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-12 sm:h-13 md:h-14 gap-1 sm:gap-1.5 md:gap-2">
           {/* 左側: ロゴ */}
-          <div className="flex items-center flex-shrink-0 min-w-0 gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[calc(100%-120px)] sm:max-w-none">
+          <div className="flex items-center flex-shrink-0 min-w-0 gap-1.5 sm:gap-2 md:gap-2.5 max-w-[calc(100%-100px)] sm:max-w-[calc(100%-140px)] md:max-w-none">
             {/* ロゴアイコン - 目立つアニメーション付き */}
             <Link
               href="/"
               className="flex-shrink-0 relative group animate-pulse hover:animate-none"
             >
-              <div className="relative w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10">
+              <div className="relative w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8">
                 {/* 外側のグローリング */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 rounded-xl opacity-75 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all duration-500 animate-pulse"></div>
                 {/* 背景グラデーション */}
@@ -78,11 +78,11 @@ export default function Header() {
             {/* ロゴテキスト - より目立つデザイン */}
             <Link
               href="/"
-              className="flex items-baseline gap-1 sm:gap-1.5 md:gap-2 group min-w-0 flex-1"
+              className="flex items-baseline gap-0.5 sm:gap-1 md:gap-1.5 group min-w-0 flex-1"
             >
               <span className="relative min-w-0 overflow-hidden">
                 {/* メインテキスト */}
-                <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold tracking-tight relative z-10 block whitespace-nowrap">
+                <span className="text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold tracking-tight relative z-10 block whitespace-nowrap">
                   <span className="hidden lg:inline bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_6px_rgba(251,191,36,0.7)] group-hover:drop-shadow-[0_0_10px_rgba(251,191,36,1)]">
                     CINEMA
                   </span>
@@ -94,20 +94,20 @@ export default function Header() {
                   </span>
                 </span>
                 {/* 強いグロー効果 */}
-                <span className="absolute inset-0 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-amber-400/50 blur-md group-hover:text-amber-300/70 group-hover:blur-lg transition-all duration-300 whitespace-nowrap">
+                <span className="absolute inset-0 text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-amber-400/50 blur-md group-hover:text-amber-300/70 group-hover:blur-lg transition-all duration-300 whitespace-nowrap">
                   <span className="hidden lg:inline">CINEMA</span>
                   <span className="hidden sm:inline lg:hidden">CINE</span>
                   <span className="sm:hidden">CINE</span>
                 </span>
                 {/* アウトライン効果 */}
-                <span className="absolute inset-0 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-transparent [-webkit-text-stroke:1px_rgba(251,191,36,0.3)] sm:[-webkit-text-stroke:1.5px_rgba(251,191,36,0.3)] group-hover:[-webkit-text-stroke:1.5px_rgba(251,191,36,0.5)] transition-all duration-300 whitespace-nowrap">
+                <span className="absolute inset-0 text-[10px] sm:text-xs md:text-sm lg:text-base xl:text-lg font-bold text-transparent [-webkit-text-stroke:0.5px_rgba(251,191,36,0.3)] sm:[-webkit-text-stroke:1px_rgba(251,191,36,0.3)] group-hover:[-webkit-text-stroke:1px_rgba(251,191,36,0.5)] transition-all duration-300 whitespace-nowrap">
                   <span className="hidden lg:inline">CINEMA</span>
                   <span className="hidden sm:inline lg:hidden">CINE</span>
                   <span className="sm:hidden">CINE</span>
                 </span>
               </span>
               {/* サブテキスト */}
-              <span className="hidden xl:inline text-[10px] text-amber-400/80 font-semibold tracking-[0.15em] uppercase group-hover:text-amber-300 group-hover:drop-shadow-[0_0_4px_rgba(251,191,36,0.6)] transition-all duration-300 whitespace-nowrap">
+              <span className="hidden xl:inline text-[9px] text-amber-400/80 font-semibold tracking-[0.1em] uppercase group-hover:text-amber-300 group-hover:drop-shadow-[0_0_4px_rgba(251,191,36,0.6)] transition-all duration-300 whitespace-nowrap">
                 REC
               </span>
             </Link>
@@ -147,19 +147,19 @@ export default function Header() {
           </div>
 
           {/* 右側: ナビゲーションとメニューボタン */}
-          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:gap-3 flex-shrink-0">
             {/* 検索アイコンボタン（モバイルのみ） */}
             <button
               onClick={() => {
                 setIsSearchOpen(!isSearchOpen);
                 setIsMenuOpen(false);
               }}
-              className="md:hidden p-2 text-gray-300 hover:text-amber-400 transition-colors"
+              className="md:hidden p-1.5 text-gray-300 hover:text-amber-400 transition-colors"
               aria-label="検索"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-4 w-4 sm:h-5 sm:w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -174,22 +174,22 @@ export default function Header() {
             </button>
 
             {/* デスクトップナビゲーション */}
-            <div className="hidden md:flex items-center space-x-3 lg:space-x-4">
+            <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
               <Link
                 href="/"
-                className="text-sm lg:text-base text-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-300 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.4)]"
+                className="text-xs lg:text-sm text-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-300 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.4)]"
               >
                 ホーム
               </Link>
               <Link
                 href="/genres"
-                className="text-sm lg:text-base text-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-300 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.4)]"
+                className="text-xs lg:text-sm text-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-300 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.4)]"
               >
                 ジャンル
               </Link>
               <Link
                 href="/mypage"
-                className="text-sm lg:text-base text-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-300 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.4)]"
+                className="text-xs lg:text-sm text-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:via-amber-300 hover:to-yellow-500 hover:bg-clip-text hover:text-transparent transition-all duration-300 hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.4)]"
               >
                 マイページ
               </Link>
@@ -201,12 +201,12 @@ export default function Header() {
                 setIsMenuOpen(!isMenuOpen);
                 setIsSearchOpen(false);
               }}
-              className="md:hidden p-2 text-gray-300 hover:text-amber-400 transition-colors"
+              className="md:hidden p-1.5 text-gray-300 hover:text-amber-400 transition-colors"
               aria-label="メニュー"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-5 w-5 sm:h-6 sm:w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
