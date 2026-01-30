@@ -24,13 +24,87 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
           {/* 左側: ロゴ */}
-          <div className="flex items-center flex-shrink-0 min-w-0">
+          <div className="flex items-center flex-shrink-0 min-w-0 gap-3 sm:gap-3.5 md:gap-4">
+            {/* ロゴアイコン - 目立つアニメーション付き */}
             <Link
               href="/"
-              className="text-base sm:text-lg md:text-xl lg:text-2xl font-serif italic font-bold bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent hover:from-yellow-300 hover:via-amber-200 hover:to-yellow-400 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] truncate"
+              className="flex-shrink-0 relative group animate-pulse hover:animate-none"
             >
-              <span className="hidden sm:inline">Movie Recommendation App</span>
-              <span className="sm:hidden">Movie App</span>
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12">
+                {/* 外側のグローリング */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 rounded-xl opacity-75 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all duration-500 animate-pulse"></div>
+                {/* 背景グラデーション */}
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 rounded-xl transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shadow-2xl group-hover:shadow-amber-500/50"></div>
+                {/* フィルムパーフォレーション */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="flex gap-0.5 sm:gap-1">
+                    <div className="w-0.5 sm:w-1 h-2 sm:h-2.5 bg-gray-900/40 rounded-full"></div>
+                    <div className="w-0.5 sm:w-1 h-2 sm:h-2.5 bg-gray-900/40 rounded-full"></div>
+                    <div className="w-0.5 sm:w-1 h-2 sm:h-2.5 bg-gray-900/40 rounded-full"></div>
+                  </div>
+                </div>
+                {/* 中央の映画フレーム */}
+                <div className="absolute inset-1 sm:inset-1.5 bg-gray-900 rounded-lg border-2 border-amber-400/50 flex items-center justify-center overflow-hidden group-hover:border-amber-400 transition-colors duration-300">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-amber-400 group-hover:text-yellow-300 transition-colors duration-300"
+                  >
+                    <path
+                      d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3.5"
+                      fill="currentColor"
+                      className="opacity-90"
+                    />
+                  </svg>
+                </div>
+                {/* 光沢効果 */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-xl pointer-events-none"></div>
+                {/* パルスアニメーション */}
+                <div className="absolute inset-0 rounded-xl border-2 border-amber-300/50 animate-ping opacity-0 group-hover:opacity-100"></div>
+              </div>
+            </Link>
+            {/* ロゴテキスト - より目立つデザイン */}
+            <Link
+              href="/"
+              className="flex items-baseline gap-2 sm:gap-2.5 group"
+            >
+              <span className="relative">
+                {/* メインテキスト */}
+                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight relative z-10 block">
+                  <span className="hidden sm:inline bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)] group-hover:drop-shadow-[0_0_12px_rgba(251,191,36,1)]">
+                    CINEMA
+                  </span>
+                  <span className="sm:hidden bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]">
+                    CINE
+                  </span>
+                </span>
+                {/* 強いグロー効果 */}
+                <span className="absolute inset-0 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-amber-400/60 blur-md group-hover:text-amber-300/80 group-hover:blur-lg transition-all duration-300">
+                  <span className="hidden sm:inline">CINEMA</span>
+                  <span className="sm:hidden">CINE</span>
+                </span>
+                {/* アウトライン効果 */}
+                <span className="absolute inset-0 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-transparent [-webkit-text-stroke:2px_rgba(251,191,36,0.3)] group-hover:[-webkit-text-stroke:2px_rgba(251,191,36,0.5)] transition-all duration-300">
+                  <span className="hidden sm:inline">CINEMA</span>
+                  <span className="sm:hidden">CINE</span>
+                </span>
+              </span>
+              {/* サブテキスト */}
+              <span className="hidden md:inline text-xs sm:text-sm text-amber-400/80 font-semibold tracking-[0.2em] uppercase group-hover:text-amber-300 group-hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.6)] transition-all duration-300">
+                REC
+              </span>
             </Link>
           </div>
 

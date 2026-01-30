@@ -37,8 +37,25 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
       <main className="py-3 sm:py-4 md:py-6 lg:py-8 xl:py-12">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-serif italic font-bold text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-12 px-3 sm:px-4 bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
-          Popular movie
+        <h1 className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-12 px-3 sm:px-4">
+          {/* メインテキスト */}
+          <span className="relative inline-block z-10">
+            <span className="bg-gradient-to-r from-yellow-300 via-amber-300 via-yellow-400 to-amber-400 bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_12px_rgba(251,191,36,0.9)] hover:drop-shadow-[0_0_20px_rgba(251,191,36,1)] transition-all duration-500">
+              Popular movie
+            </span>
+          </span>
+          {/* 強いグロー効果 */}
+          <span className="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-amber-400/50 blur-xl animate-pulse pointer-events-none">
+            Popular movie
+          </span>
+          {/* アウトライン効果 */}
+          <span className="absolute inset-0 flex items-center justify-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-transparent [-webkit-text-stroke:3px_rgba(251,191,36,0.4)] pointer-events-none">
+            Popular movie
+          </span>
+          {/* パルスリング */}
+          <span className="absolute inset-0 flex items-center justify-center">
+            <span className="w-full max-w-md h-1 bg-gradient-to-r from-transparent via-amber-400/50 to-transparent rounded-full blur-sm animate-pulse"></span>
+          </span>
         </h1>
         {error ? (
           <ErrorDisplay message={error} />
