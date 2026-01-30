@@ -24,13 +24,13 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 gap-2 sm:gap-4">
           {/* 左側: ロゴ */}
-          <div className="flex items-center flex-shrink-0 min-w-0 gap-3 sm:gap-3.5 md:gap-4">
+          <div className="flex items-center flex-shrink-0 min-w-0 gap-2 sm:gap-2.5 md:gap-3 lg:gap-4 max-w-[calc(100%-120px)] sm:max-w-none">
             {/* ロゴアイコン - 目立つアニメーション付き */}
             <Link
               href="/"
               className="flex-shrink-0 relative group animate-pulse hover:animate-none"
             >
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12">
+              <div className="relative w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12">
                 {/* 外側のグローリング */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 rounded-xl opacity-75 blur-md group-hover:opacity-100 group-hover:blur-lg transition-all duration-500 animate-pulse"></div>
                 {/* 背景グラデーション */}
@@ -78,31 +78,36 @@ export default function Header() {
             {/* ロゴテキスト - より目立つデザイン */}
             <Link
               href="/"
-              className="flex items-baseline gap-2 sm:gap-2.5 group"
+              className="flex items-baseline gap-1.5 sm:gap-2 md:gap-2.5 group min-w-0 flex-1"
             >
-              <span className="relative">
+              <span className="relative min-w-0 overflow-hidden">
                 {/* メインテキスト */}
-                <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight relative z-10 block">
-                  <span className="hidden sm:inline bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)] group-hover:drop-shadow-[0_0_12px_rgba(251,191,36,1)]">
+                <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold tracking-tight relative z-10 block whitespace-nowrap">
+                  <span className="hidden lg:inline bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)] group-hover:drop-shadow-[0_0_12px_rgba(251,191,36,1)]">
                     CINEMA
+                  </span>
+                  <span className="hidden sm:inline lg:hidden bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]">
+                    CINE
                   </span>
                   <span className="sm:hidden bg-gradient-to-r from-white via-yellow-100 to-white bg-clip-text text-transparent group-hover:from-amber-300 group-hover:via-yellow-300 group-hover:to-amber-300 transition-all duration-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.8)]">
                     CINE
                   </span>
                 </span>
                 {/* 強いグロー効果 */}
-                <span className="absolute inset-0 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-amber-400/60 blur-md group-hover:text-amber-300/80 group-hover:blur-lg transition-all duration-300">
-                  <span className="hidden sm:inline">CINEMA</span>
+                <span className="absolute inset-0 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-amber-400/60 blur-md group-hover:text-amber-300/80 group-hover:blur-lg transition-all duration-300 whitespace-nowrap">
+                  <span className="hidden lg:inline">CINEMA</span>
+                  <span className="hidden sm:inline lg:hidden">CINE</span>
                   <span className="sm:hidden">CINE</span>
                 </span>
                 {/* アウトライン効果 */}
-                <span className="absolute inset-0 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-transparent [-webkit-text-stroke:2px_rgba(251,191,36,0.3)] group-hover:[-webkit-text-stroke:2px_rgba(251,191,36,0.5)] transition-all duration-300">
-                  <span className="hidden sm:inline">CINEMA</span>
+                <span className="absolute inset-0 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold text-transparent [-webkit-text-stroke:1.5px_rgba(251,191,36,0.3)] sm:[-webkit-text-stroke:2px_rgba(251,191,36,0.3)] group-hover:[-webkit-text-stroke:2px_rgba(251,191,36,0.5)] transition-all duration-300 whitespace-nowrap">
+                  <span className="hidden lg:inline">CINEMA</span>
+                  <span className="hidden sm:inline lg:hidden">CINE</span>
                   <span className="sm:hidden">CINE</span>
                 </span>
               </span>
               {/* サブテキスト */}
-              <span className="hidden md:inline text-xs sm:text-sm text-amber-400/80 font-semibold tracking-[0.2em] uppercase group-hover:text-amber-300 group-hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.6)] transition-all duration-300">
+              <span className="hidden xl:inline text-xs text-amber-400/80 font-semibold tracking-[0.2em] uppercase group-hover:text-amber-300 group-hover:drop-shadow-[0_0_6px_rgba(251,191,36,0.6)] transition-all duration-300 whitespace-nowrap">
                 REC
               </span>
             </Link>
