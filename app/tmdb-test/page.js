@@ -23,7 +23,7 @@ export default async function TmdbTestPage() {
                 src={
                   m.poster_path
                     ? `https://image.tmdb.org/t/p/w200${m.poster_path}`
-                    : "/placeholder.png"
+                    : `https://picsum.photos/200/300?random=${m.id}`
                 }
                 alt={m.title}
                 className="rounded mb-2 w-full h-auto"

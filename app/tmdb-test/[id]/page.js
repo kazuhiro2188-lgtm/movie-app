@@ -38,7 +38,7 @@ export default async function MovieDetailPage({ params }) {
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
-                : "/placeholder.png"
+                : `https://picsum.photos/300/450?random=${movie.id}`
             }
             alt={movie.title}
             width={300}
