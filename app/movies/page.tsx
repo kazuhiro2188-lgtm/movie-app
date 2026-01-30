@@ -1,22 +1,41 @@
-import MovieList from "./components/MovieList";
 import { fetchPopularMovies, getImageUrl, convertRating } from "@/lib/tmdb";
-import Loading from "./components/Loading";
-import Error from "./components/Error";
+import MovieList from "../components/MovieList";
+import Loading from "../components/Loading";
+import ErrorDisplay from "../components/Error";
 
-export default async function Home() {
-  let movies = [];
-  let error = null;
+interface Movie {
+  id: number;
+  title: string;
+  poster_path?: string;
+  release_date?: string;
+  vote_average?: number;
+}
+
+export const metadata = {
+  title: "人気映画一覧",
+  description: "TMDBから取得した人気映画の一覧",
+};
+
+export default async function MoviesPage() {
+  let movies: Array<{
+    id: number;
+    title: string;
+    posterPath: string;
+    releaseDate: string;
+    rating: number;
+  }> = [];
+  let error: string | null = null;
 
   try {
     const results = await fetchPopularMovies("ja-JP", 1);
-    movies = results.map((movie: any) => ({
+    movies = (results as Movie[]).map((movie) => ({
       id: movie.id,
       title: movie.title,
-      posterPath: getImageUrl(movie.poster_path) || "https://picsum.photos/500/750?random=" + movie.id,
+      posterPath: getImageUrl(movie.poster_path) || `https://picsum.photos/500/750?random=${movie.id}`,
       releaseDate: movie.release_date || "",
-      rating: parseFloat(convertRating(movie.vote_average)),
+      rating: parseFloat(convertRating(movie.vote_average || 0)),
     }));
-  } catch (e) {
+  } catch (e: unknown) {
     error = e instanceof Error ? e.message : "エラーが発生しました";
   }
 
@@ -27,7 +46,7 @@ export default async function Home() {
           Popular movie
         </h1>
         {error ? (
-          <Error message={error} />
+          <ErrorDisplay message={error} />
         ) : movies.length === 0 ? (
           <Loading />
         ) : (
