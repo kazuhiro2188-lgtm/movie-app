@@ -30,7 +30,7 @@ export default function MovieCard({
   return (
     <Link
       href={movieHref}
-      className="flex flex-col bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-out no-underline text-inherit hover:-translate-y-4 hover:shadow-2xl hover:scale-105 h-full border border-gray-700/50"
+      className="flex flex-col bg-gray-800/50 backdrop-blur-sm rounded-lg sm:rounded-xl overflow-hidden shadow-md transition-all duration-300 ease-out no-underline text-inherit active:scale-95 sm:hover:-translate-y-2 sm:hover:shadow-2xl sm:hover:scale-105 h-full border border-gray-700/50 touch-manipulation"
     >
       <div className="relative w-full aspect-[2/3] overflow-hidden">
         <Image
@@ -42,16 +42,16 @@ export default function MovieCard({
           loading="lazy"
         />
       </div>
-      <div className="p-3 sm:p-4 md:p-5 flex flex-col gap-2 sm:gap-3 flex-grow">
-        <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold m-0 text-white leading-tight sm:leading-snug line-clamp-2">
+      <div className="p-2.5 sm:p-3 md:p-4 lg:p-5 flex flex-col gap-1.5 sm:gap-2 md:gap-3 flex-grow">
+        <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold m-0 text-white leading-tight sm:leading-snug line-clamp-2 min-h-[2.5em] sm:min-h-[3em]">
           {title}
         </h3>
-        <p className="text-xs sm:text-sm text-gray-300 m-0">公開日：{releaseDate}</p>
-        <div className="flex items-center gap-1.5 sm:gap-2 mt-auto" aria-label={`評価 ${rating} / 5`}>
-          <span className="text-sm sm:text-base md:text-lg text-amber-400 tracking-wider" aria-hidden="true">
+        <p className="text-[10px] sm:text-xs md:text-sm text-gray-300 m-0">公開日：{releaseDate}</p>
+        <div className="flex items-center gap-1 sm:gap-1.5 md:gap-2 mt-auto" aria-label={`評価 ${rating} / 5`}>
+          <span className="text-xs sm:text-sm md:text-base lg:text-lg text-amber-400 tracking-wider" aria-hidden="true">
             {stars}
           </span>
-          <span className="text-xs sm:text-sm font-semibold text-white">{rating.toFixed(1)}</span>
+          <span className="text-[10px] sm:text-xs md:text-sm font-semibold text-white">{rating.toFixed(1)}</span>
         </div>
       </div>
     </Link>

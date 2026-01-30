@@ -81,23 +81,23 @@ function SearchContent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-      <main className="py-4 sm:py-6 md:py-8 lg:py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-white">
+      <main className="py-3 sm:py-4 md:py-6 lg:py-8 xl:py-12">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 md:mb-8 text-white px-2">
             映画検索
           </h1>
-          <form onSubmit={handleSubmit} className="mb-8">
-            <div className="flex gap-2">
+          <form onSubmit={handleSubmit} className="mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
               <input
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="映画タイトルを入力..."
-                className="flex-1 px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:border-amber-400"
+                className="flex-1 px-4 py-2.5 sm:py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:border-amber-400 text-base sm:text-sm"
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-amber-400 text-gray-900 rounded-lg hover:bg-amber-500 transition-colors font-semibold"
+                className="px-6 py-2.5 sm:py-2 bg-amber-400 text-gray-900 rounded-lg active:bg-amber-500 sm:hover:bg-amber-500 transition-colors font-semibold text-base sm:text-sm touch-manipulation whitespace-nowrap"
               >
                 検索
               </button>
@@ -110,15 +110,15 @@ function SearchContent() {
             <ErrorDisplay message={error} onRetry={() => handleSearch(query)} />
           ) : movies.length > 0 ? (
             <>
-              <p className="text-white mb-4">検索結果: {movies.length}件</p>
+              <p className="text-sm sm:text-base text-white mb-3 sm:mb-4 px-2 sm:px-0">検索結果: {movies.length}件</p>
               <MovieList movies={movies} />
             </>
           ) : query ? (
-            <div className="text-center text-gray-400 py-12">
+            <div className="text-center text-gray-400 py-8 sm:py-12 text-sm sm:text-base">
               検索結果が見つかりませんでした
             </div>
           ) : (
-            <div className="text-center text-gray-400 py-12">
+            <div className="text-center text-gray-400 py-8 sm:py-12 text-sm sm:text-base">
               検索キーワードを入力してください
             </div>
           )}

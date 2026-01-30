@@ -76,7 +76,7 @@ export default function MovieList({ movies = [] }: MovieListProps) {
   const moviesToDisplay = movies.length > 0 ? movies : defaultMovies;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 p-4 sm:p-6 md:p-8 lg:p-12 max-w-[1400px] mx-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 max-w-[1400px] mx-auto">
       {moviesToDisplay.map((movie) => (
         <MovieCard
           key={movie.id}

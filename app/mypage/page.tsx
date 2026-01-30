@@ -78,40 +78,40 @@ export default function MyPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black">
-      <main className="py-4 sm:py-6 md:py-8 lg:py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-white">
+      <main className="py-3 sm:py-4 md:py-6 lg:py-8 xl:py-12">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 md:mb-8 text-white px-2">
             マイページ
           </h1>
 
           {/* タブ */}
-          <div className="flex gap-2 mb-8 overflow-x-auto">
+          <div className="flex gap-2 sm:gap-3 mb-6 sm:mb-8 overflow-x-auto pb-2 -mx-3 sm:-mx-4 md:-mx-6 px-3 sm:px-4 md:px-6 scrollbar-hide">
             <button
               onClick={() => setActiveTab("favorites")}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap ${
+              className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm sm:text-base touch-manipulation ${
                 activeTab === "favorites"
                   ? "bg-amber-400 text-gray-900"
-                  : "bg-gray-700 text-white hover:bg-gray-600"
+                  : "bg-gray-700 text-white active:bg-gray-600 sm:hover:bg-gray-600"
               }`}
             >
               お気に入り ({favorites.length})
             </button>
             <button
               onClick={() => setActiveTab("watched")}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap ${
+              className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm sm:text-base touch-manipulation ${
                 activeTab === "watched"
                   ? "bg-amber-400 text-gray-900"
-                  : "bg-gray-700 text-white hover:bg-gray-600"
+                  : "bg-gray-700 text-white active:bg-gray-600 sm:hover:bg-gray-600"
               }`}
             >
               視聴済み ({watched.length})
             </button>
             <button
               onClick={() => setActiveTab("watchlist")}
-              className={`px-6 py-2 rounded-lg font-semibold transition-colors whitespace-nowrap ${
+              className={`px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-lg font-semibold transition-colors whitespace-nowrap text-sm sm:text-base touch-manipulation ${
                 activeTab === "watchlist"
                   ? "bg-amber-400 text-gray-900"
-                  : "bg-gray-700 text-white hover:bg-gray-600"
+                  : "bg-gray-700 text-white active:bg-gray-600 sm:hover:bg-gray-600"
               }`}
             >
               視聴予定 ({watchlist.length})
@@ -120,11 +120,11 @@ export default function MyPage() {
 
           {/* コンテンツ */}
           {loading ? (
-            <div className="text-center text-gray-400 py-12">読み込み中...</div>
+            <div className="text-center text-gray-400 py-8 sm:py-12 text-sm sm:text-base">読み込み中...</div>
           ) : getCurrentMovies().length > 0 ? (
             <MovieList movies={getCurrentMovies()} />
           ) : (
-            <div className="text-center text-gray-400 py-12">
+            <div className="text-center text-gray-400 py-8 sm:py-12 text-sm sm:text-base">
               {activeTab === "favorites" && "お気に入りがありません"}
               {activeTab === "watched" && "視聴済みの映画がありません"}
               {activeTab === "watchlist" && "視聴予定の映画がありません"}
