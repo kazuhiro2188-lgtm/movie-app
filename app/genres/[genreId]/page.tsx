@@ -1,25 +1,45 @@
 import { getMoviesByGenre, getGenres, getImageUrl, convertRating } from "@/lib/tmdb";
 import MovieList from "@/app/components/MovieList";
 import Loading from "@/app/components/Loading";
-import Error from "@/app/components/Error";
+import ErrorDisplay from "@/app/components/Error";
 import { notFound } from "next/navigation";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     genreId: string;
-  };
+  }>;
+}
+
+interface Genre {
+  id: number;
+  name: string;
+}
+
+interface Movie {
+  id: number;
+  title: string;
+  poster_path?: string;
+  release_date?: string;
+  vote_average?: number;
 }
 
 export default async function GenreDetailPage({ params }: PageProps) {
-  const genreId = parseInt(params.genreId);
+  const { genreId: genreIdParam } = await params;
+  const genreId = parseInt(genreIdParam);
 
   if (isNaN(genreId)) {
     notFound();
   }
 
-  let movies = [];
+  let movies: Array<{
+    id: number;
+    title: string;
+    posterPath: string;
+    releaseDate: string;
+    rating: number;
+  }> = [];
   let genreName = "";
-  let error = null;
+  let error: string | null = null;
 
   try {
     const [movieResults, genreList] = await Promise.all([
@@ -27,20 +47,20 @@ export default async function GenreDetailPage({ params }: PageProps) {
       getGenres("ja-JP"),
     ]);
 
-    const genre = genreList.find((g: any) => g.id === genreId);
+    const genre = (genreList as Genre[]).find((g) => g.id === genreId);
     if (!genre) {
       notFound();
     }
 
     genreName = genre.name;
-    movies = movieResults.map((movie: any) => ({
+    movies = (movieResults as Movie[]).map((movie) => ({
       id: movie.id,
       title: movie.title,
       posterPath: getImageUrl(movie.poster_path) || `https://picsum.photos/500/750?random=${movie.id}`,
       releaseDate: movie.release_date || "",
-      rating: parseFloat(convertRating(movie.vote_average)),
+      rating: parseFloat(convertRating(movie.vote_average || 0)),
     }));
-  } catch (e) {
+  } catch (e: unknown) {
     error = e instanceof Error ? e.message : "エラーが発生しました";
   }
 
@@ -51,7 +71,7 @@ export default async function GenreDetailPage({ params }: PageProps) {
           {genreName}の映画
         </h1>
         {error ? (
-          <Error message={error} />
+          <ErrorDisplay message={error} />
         ) : movies.length === 0 ? (
           <Loading />
         ) : (

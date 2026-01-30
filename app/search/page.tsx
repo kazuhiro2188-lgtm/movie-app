@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import MovieList from "../components/MovieList";
 import Loading from "../components/Loading";
-import Error from "../components/Error";
+import ErrorDisplay from "../components/Error";
 
 interface Movie {
   id: number;
@@ -12,6 +12,14 @@ interface Movie {
   posterPath: string;
   releaseDate: string;
   rating: number;
+}
+
+interface TMDBMovie {
+  id: number;
+  title: string;
+  poster_path?: string;
+  release_date?: string;
+  vote_average?: number;
 }
 
 export default function SearchPage() {
@@ -33,21 +41,24 @@ export default function SearchPage() {
 
     try {
       const response = await fetch(`/api/search?q=${encodeURIComponent(searchQuery)}`);
-      if (!response.ok) throw new Error("検索に失敗しました");
+      if (!response.ok) {
+        const error = new Error("検索に失敗しました") as Error;
+        throw error;
+      }
 
       const data = await response.json();
-      const movieList = data.results.map((movie: any) => ({
+      const movieList = (data.results as TMDBMovie[]).map((movie) => ({
         id: movie.id,
         title: movie.title,
         posterPath: movie.poster_path
           ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
           : `https://picsum.photos/500/750?random=${movie.id}`,
         releaseDate: movie.release_date || "",
-        rating: parseFloat((movie.vote_average / 2).toFixed(1)),
+        rating: parseFloat(((movie.vote_average || 0) / 2).toFixed(1)),
       }));
 
       setMovies(movieList);
-    } catch (e) {
+    } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "エラーが発生しました");
     } finally {
       setLoading(false);
@@ -95,7 +106,7 @@ export default function SearchPage() {
           {loading ? (
             <Loading />
           ) : error ? (
-            <Error message={error} onRetry={() => handleSearch(query)} />
+            <ErrorDisplay message={error} onRetry={() => handleSearch(query)} />
           ) : movies.length > 0 ? (
             <>
               <p className="text-white mb-4">検索結果: {movies.length}件</p>

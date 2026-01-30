@@ -6,9 +6,9 @@ import Loading from "@/app/components/Loading";
 import ErrorDisplay from "@/app/components/Error";
 
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 interface SimilarMovie {
@@ -36,7 +36,8 @@ interface MovieDetail {
 }
 
 export default async function MovieDetailPage({ params }: PageProps) {
-  const movieId = parseInt(params.id);
+  const { id } = await params;
+  const movieId = parseInt(id);
 
   if (isNaN(movieId)) {
     notFound();
